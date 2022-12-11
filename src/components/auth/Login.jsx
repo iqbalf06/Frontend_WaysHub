@@ -101,12 +101,11 @@ console.log(state, "ini state");
               {message && message}
               <Form.Group className="mb-4" controlId="formEmail">
                 <Form.Control
-                  className="mb-3 py-2 fs-5"
+                  className="mb-3 py-2 fs-5 text-white"
                   style={{
                     borderColor: "#BCBCBC",
                     borderWidth: "3px",
                     backgroundColor: "#555555",
-                    color: "rgb(210,210,210,0.25)",
                   }}
                   type="email"
                   placeholder="Email"
@@ -117,12 +116,11 @@ console.log(state, "ini state");
 
               <Form.Group className="mb-5" controlId="formPassword">
                 <Form.Control
-                  className="py-2 fs-5"
+                  className="py-2 fs-5 text-white"
                   style={{
                     borderColor: "#BCBCBC",
                     borderWidth: "3px",
                     backgroundColor: "#555555",
-                    color: "rgb(210,210,210,0.25)",
                   }}
                   type="password"
                   placeholder="Password"

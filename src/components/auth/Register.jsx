@@ -110,12 +110,11 @@ function Register() {
             {message && message}
             <Form.Group controlId="formEmail">
               <Form.Control
-                className="mb-4 py-2 fs-5"
+                className="mb-4 py-2 fs-5 text-white"
                 style={{
                   borderColor: "#BCBCBC",
                   borderWidth: "3px",
                   backgroundColor: "#555555",
-                  color: "rgb(210,210,210,0.25)",
                 }}
                 type="email"
                 placeholder="Email"
@@ -126,12 +125,11 @@ function Register() {
 
             <Form.Group className="mb-4" controlId="formPassword">
               <Form.Control
-                className="py-2 fs-5"
+                className="py-2 fs-5 text-white"
                 style={{
                   borderColor: "#BCBCBC",
                   borderWidth: "3px",
                   backgroundColor: "#555555",
-                  color: "rgb(210,210,210,0.25)",
                 }}
                 type="password"
                 placeholder="Password"
@@ -142,12 +140,11 @@ function Register() {
 
             <Form.Group className="mb-4" controlId="formChannelName">
               <Form.Control
-                className="py-2 fs-5"
+                className="py-2 fs-5 text-white"
                 style={{
                   borderColor: "#BCBCBC",
                   borderWidth: "3px",
                   backgroundColor: "#555555",
-                  color: "rgb(210,210,210,0.25)",
                 }}
                 type="text"
                 placeholder="Channel Name"
@@ -158,12 +155,11 @@ function Register() {
 
             <Form.Group className="mb-5" controlId="formChannelDescription">
               <Form.Control
-                className="py-2 fs-5"
+                className="py-2 fs-5 text-white"
                 style={{
                   borderColor: "#BCBCBC",
                   borderWidth: "3px",
                   backgroundColor: "#555555",
-                  color: "rgb(210,210,210,0.25)",
                   resize: "none",
                 }}
                 as="textarea"
