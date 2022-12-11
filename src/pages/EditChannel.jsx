@@ -87,7 +87,7 @@ function EditChannel() {
                       borderColor: "#BCBCBC",
                       borderWidth: "3px",
                       backgroundColor: "#555555",
-                      color: "rgb(210,210,210,0.25)",
+                      color: "white",
                     }}
                     type="text"
                     placeholder="Channel Name"
@@ -125,7 +125,7 @@ function EditChannel() {
                     borderColor: "#BCBCBC",
                     borderWidth: "3px",
                     backgroundColor: "#555555",
-                    color: "rgb(210,210,210,0.25)",
+                    color: "white",
                   }}
                   as="textarea"
                   rows="6"

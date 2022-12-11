@@ -42,7 +42,7 @@ function Navbar() {
         <>
             <Container className="px-5" style={{position:'fixed', backgroundColor:'#0B0B0B', height:'100px'}}>
                 <Stack direction="horizontal">
-                    <Form.Group className="d-flex flex-column justify-content-center w-50" controlId="formSearch" style={{marginRight:'20%'}}>
+                    <Form.Group className="d-flex flex-column justify-content-center w-50 text-white" controlId="formSearch" style={{marginRight:'20%'}}>
                         <Form.Control className="py-1 fs-5 my-4" style={{ borderColor: '#BCBCBC', borderWidth: '3px', backgroundColor: '#555555', color: 'rgb(210,210,210,0.25)' }} type="search" placeholder="Search" />
                     </Form.Group>
 
