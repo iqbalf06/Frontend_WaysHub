@@ -21,8 +21,7 @@ import { API } from "../../config/api";
 function Login() {
   let navigate = useNavigate();
 
-  const title = "Login";
-  document.title = "WaysHub | " + title;
+  document.title = "WaysHub";
 
   const [state, dispatch] = useContext(UserContext);
 console.log(state, "ini state");

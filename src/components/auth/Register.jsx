@@ -20,8 +20,7 @@ import { API } from "../../config/api";
 function Register() {
   const navigate = useNavigate();
 
-  const title = "Register";
-  document.title = "WaysHub | " + title;
+  document.title = "WaysHub";
 
   const [state, dispatch] = useContext(UserContext);
 
