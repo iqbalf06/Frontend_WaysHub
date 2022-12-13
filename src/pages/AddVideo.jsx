@@ -8,8 +8,7 @@ import { useMutation } from "react-query";
 import { useNavigate } from "react-router";
 
 function AddVideo() {   
-  const title = "Add Video";
-  document.title = "WaysHub | " + title;
+  document.title = "WaysHub";
 
   let navigate = useNavigate();
 

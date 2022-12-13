@@ -43,18 +43,11 @@ console.log(state, "ini state");
     try {
       e.preventDefault();
 
-      // Configuration
-      const config = {
-        headers: {
-          "Content-type": "application/json",
-        },
-      };
-
       // Data body
       const body = JSON.stringify(form);
 
       // Insert data for login process
-      const response = await API.post("/login", body, config);
+      const response = await API.post("/login", body);
 
       // Checking process
       if (response?.status === 200) {

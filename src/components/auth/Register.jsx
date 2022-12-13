@@ -43,18 +43,11 @@ function Register() {
     try {
       e.preventDefault();
 
-      // Configuration Content-type
-      const config = {
-        headers: {
-          "Content-type": "application/json",
-        },
-      };
-
       // Data body
       const body = JSON.stringify(form);
 
       // Insert data user to database
-      const response = await API.post("/register", body, config);
+      const response = await API.post("/register", body);
 
       // Notification
       console.log(response);

@@ -73,11 +73,12 @@ function Auth() {
                   variant="primary"
                   type="submit"
                   style={{
-                    backgroundColor: "#FF7A00",
+                    backgroundColor: "light",
                     border: "none",
                     width: "25%",
+                    color:"#FF7A00"
                   }}
-                  className="mt-5 py-2 fw-bold fs-5 text-white"
+                  className="mt-5 py-2 fw-bold fs-5"
                 >
                   Sign Up
                 </Button>

@@ -41,7 +41,7 @@ function Sidebar() {
                         <Card.Text className="text-white">Home</Card.Text>
                     </Stack>
 
-                    <Stack direction="horizontal" className="mb-3 btn ps-0">
+                    <Stack direction="horizontal" className="mb-4 btn ps-0">
                         <div className="d-flex flex-column justify-content-center me-3">
                             <Image src={SubscriptionIcon} />
                         </div>
