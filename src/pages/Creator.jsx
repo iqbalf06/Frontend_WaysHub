@@ -70,7 +70,7 @@ function Creator() {
             <Card.Text className="text-white fs-3 mb-0">
               {creator?.channelName}
             </Card.Text>
-            <Card.Text style={{ color: "#F0F0F0" }}>15K Subscriber</Card.Text>
+            <Card.Text style={{ color: "#F0F0F0" }}>120K Subscriber</Card.Text>
           </Stack>
           <Button
             className="py-2"
