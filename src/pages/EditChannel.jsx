@@ -1,28 +1,29 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
-  Container,
-  Col,
-  Row,
-  Form,
-  Card,
   Button,
-  Stack,
+  Card,
+  Col,
+  Container,
+  Form,
   Image,
+  Row,
+  Spinner,
+  Stack
 } from "react-bootstrap";
-import { API } from "../config/api";
 import { useMutation } from "react-query";
 import { useNavigate } from "react-router";
 import UploadVideoIcon from "../assets/images/UploadImgIcon.png";
+import Navbar from "../components/navbar/Navbar";
+import { API } from "../config/api";
 
 function EditChannel() {
-
   let navigate = useNavigate();
 
   const [form, setForm] = useState({
     channelName: "",
     description: "",
     photo: "",
-    cover:"",
+    cover: "",
   });
 
   // Handle change data on form
@@ -38,11 +39,11 @@ function EditChannel() {
       let url = URL.createObjectURL(e.target.files[0]);
     }
   };
-
+  const [isLoading, setIsLoading] = useState(false)
   const handleSubmit = useMutation(async (e) => {
     try {
       e.preventDefault();
-
+      setIsLoading(true)
       // Configuration
       const config = {
         headers: {
@@ -56,22 +57,21 @@ function EditChannel() {
       formEditChannel.set("description", form.description);
       formEditChannel.set("cover", form.cover[0]);
 
-
       console.log(form);
 
       // Insert product data
       const response = await API.patch("/editchannel", formEditChannel, config);
       console.log(response);
 
-      navigate('/mychannel')
-
+      navigate("/mychannel");
     } catch (error) {
       console.log(error);
     }
   });
   return (
     <>
-      <Container className="py-0 px-5" style={{ marginTop: "10%" }}>
+    <Navbar/>
+      <Container className="py-3 px-5" style={{ marginTop: "2%" }}>
         <Row>
           <Col className="mb-4">
             <Form onSubmit={(e) => handleSubmit.mutate(e)}>
@@ -114,7 +114,13 @@ function EditChannel() {
                     </Card.Text>
                     <Image src={UploadVideoIcon} className="ms-auto" />
                   </Stack>
-                  <Form.Control type="file" style={{ width: "100%" }} hidden name="cover" onChange={handleChange} />
+                  <Form.Control
+                    type="file"
+                    style={{ width: "100%" }}
+                    hidden
+                    name="cover"
+                    onChange={handleChange}
+                  />
                 </Form.Label>
               </Stack>
 
@@ -153,7 +159,13 @@ function EditChannel() {
                   </Card.Text>
                   <Image src={UploadVideoIcon} className="ms-auto" />
                 </Stack>
-                <Form.Control type="file" style={{ width: "100%" }} hidden name="photo" onChange={handleChange} />
+                <Form.Control
+                  type="file"
+                  style={{ width: "100%" }}
+                  hidden
+                  name="photo"
+                  onChange={handleChange}
+                />
               </Form.Label>
 
               <Button
@@ -162,7 +174,17 @@ function EditChannel() {
                 style={{ backgroundColor: "#FF7A00", border: "none" }}
                 className="py-2 fw-bold fs-5 w-100 text-white"
               >
-                Save
+                {isLoading ? (
+                  <Spinner
+                    as="span"
+                    animation="border"
+                    size="sm"
+                    role="status"
+                    aria-hidden="true"
+                  />
+                ) : (
+                  "Save"
+                )}
               </Button>
             </Form>
           </Col>

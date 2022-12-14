@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { QueryClient, QueryClientProvider } from "react-query";
 import { UserContextProvider } from "./context/userContext";
 import { BrowserRouter as Router } from "react-router-dom";
+import "./index.css"
 
 const client = new QueryClient();
 

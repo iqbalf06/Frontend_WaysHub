@@ -1,14 +1,13 @@
-import React, { useState, useRef, useContext } from "react";
-import { UserContext } from '../../context/userContext'
-import { Container, Form, Stack, Image, Card, Overlay, Popover } from "react-bootstrap"
-import { useNavigate } from "react-router-dom"
-
-import AddVideoIcon from "../../assets/icon/AddVideoIcon.svg"
-import Foto from "../../assets/images/blankphoto.png"
-import MyChannelLogo from "../../assets/icon/MyChannelLogo.svg"
-import LogoutIcon from "../../assets/icon/LogoutIcon.svg"
+import React, { useContext, useRef, useState } from "react";
+import { Card, Container, Form, Image, Overlay, Popover, Stack } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+import { UserContext } from '../../context/userContext';
 import { useQuery } from 'react-query';
-import { API } from '../../config/api'
+import AddVideoIcon from "../../assets/icon/AddVideoIcon.svg";
+import LogoutIcon from "../../assets/icon/LogoutIcon.svg";
+import MyChannelLogo from "../../assets/icon/MyChannelLogo.svg";
+import Foto from "../../assets/images/blankphoto.png";
+import { API } from '../../config/api';
 
 function Navbar() {
     let { data: mychannels } = useQuery('navbarcache', async () => {
@@ -40,10 +39,10 @@ function Navbar() {
 
     return (
         <>
-            <Container className="px-5" style={{position:'fixed', backgroundColor:'#0B0B0B', height:'100px'}}>
+            <Container className="px-5" style={{ backgroundColor:'#0B0B0B', }}>
                 <Stack direction="horizontal">
-                    <Form.Group className="d-flex flex-column justify-content-center w-50 text-white" controlId="formSearch" style={{marginRight:'20%'}}>
-                        <Form.Control className="py-1 fs-5 my-4" style={{ borderColor: '#BCBCBC', borderWidth: '3px', backgroundColor: '#555555', color: 'rgb(210,210,210,0.25)' }} type="search" placeholder="Search" />
+                    <Form.Group className="d-flex flex-column justify-content-center me-auto w-50 text-white" controlId="formSearch">
+                        <Form.Control className="py-1 fs-5" style={{ borderColor: '#BCBCBC', borderWidth: '3px', backgroundColor: '#555555', color: 'rgb(210,210,210,0.25)', }} type="search" placeholder="Search" />
                     </Form.Group>
 
                     <Stack direction="horizontal" className="btn me-3" onClick={() => navigate("/addvideo")}>

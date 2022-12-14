@@ -1,13 +1,21 @@
-import React, { useState, useEffect } from "react";
-import { Container, Form, Stack, Image, Card, Button } from "react-bootstrap";
-import AttachIcon from "../assets/images/AttachIcon.png";
-import UploadVideoIcon from "../assets/images/UploadVideoIcon.png";
-import Thumbnail from "../assets/images/thumbnail.jpeg";
-import { API } from "../config/api";
+import React, { useState } from "react";
+import {
+  Button,
+  Card,
+  Container,
+  Form,
+  Image,
+  Spinner,
+  Stack,
+} from "react-bootstrap";
 import { useMutation } from "react-query";
 import { useNavigate } from "react-router";
+import AttachIcon from "../assets/images/AttachIcon.png";
+import UploadVideoIcon from "../assets/images/UploadVideoIcon.png";
+import Navbar from "../components/navbar/Navbar";
+import { API } from "../config/api";
 
-function AddVideo() {   
+function AddVideo() {
   document.title = "WaysHub";
 
   let navigate = useNavigate();
@@ -33,10 +41,11 @@ function AddVideo() {
     }
   };
 
+  const [isLoading, setIsLoading] = useState(false)
   const handleSubmit = useMutation(async (e) => {
     try {
       e.preventDefault();
-
+      setIsLoading(true)
       // Configuration
       const config = {
         headers: {
@@ -56,14 +65,16 @@ function AddVideo() {
       const response = await API.post("/video", formAddVideo, config);
       console.log(response);
 
-      navigate('/mychannel')
+      navigate("/mychannel");
     } catch (error) {
       console.log(error);
     }
   });
 
   return (
-    <Container className="py-3 px-5" style={{ marginTop: "10%" }}>
+    <>
+    <Navbar/>
+    <Container className="py-3 px-5" style={{ marginTop: "2%" }}>
       <Form onSubmit={(e) => handleSubmit.mutate(e)}>
         <Form.Label className="text-white fs-4 fw-bold mb-4">
           Add Video
@@ -164,10 +175,21 @@ function AddVideo() {
           style={{ backgroundColor: "#FF7A00", border: "none" }}
           className="py-2 fw-bold fs-5 w-100 text-white"
         >
-          Add
+          {isLoading ? (
+            <Spinner
+              as="span"
+              animation="border"
+              size="sm"
+              role="status"
+              aria-hidden="true"
+            />
+          ) : (
+            "Add"
+          )}
         </Button>
       </Form>
     </Container>
+    </>
   );
 }
 

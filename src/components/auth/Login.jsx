@@ -1,21 +1,15 @@
 import { useContext, useState } from "react";
 import {
-  Container,
-  Row,
-  Col,
-  Stack,
-  Image,
-  Form,
+  Alert,
   Button,
-  Card,
+  Col,
+  Container,
+  Form,
+  Spinner
 } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-
-import WaysHub from "../../assets/images/WaysHub.png";
 import { useMutation } from "react-query";
-import { Alert } from "react-bootstrap";
 import { UserContext } from "../../context/userContext";
-
 import { API } from "../../config/api";
 
 function Login() {
@@ -24,7 +18,7 @@ function Login() {
   document.title = "WaysHub";
 
   const [state, dispatch] = useContext(UserContext);
-console.log(state, "ini state");
+// console.log(state, "ini state");
   const [message, setMessage] = useState(null);
   const [form, setForm] = useState({
     email: "",
@@ -38,11 +32,11 @@ console.log(state, "ini state");
       [e.target.name]: e.target.value,
     });
   };
-
+  const [isLoading, setIsLoading] = useState(false)
   const handleSubmit = useMutation(async (e) => {
     try {
       e.preventDefault();
-
+      setIsLoading(true)
       // Data body
       const body = JSON.stringify(form);
 
@@ -63,6 +57,7 @@ console.log(state, "ini state");
           </Alert>
         );
         setMessage(alert);
+    navigate(0)
       }
     } catch (error) {
       const alert = (
@@ -74,7 +69,7 @@ console.log(state, "ini state");
       console.log(error);
     }
   });
-
+  
   return (
     <>
       <Container className="p-3" style={{ height: "95vh" }}>
@@ -127,7 +122,17 @@ console.log(state, "ini state");
                 style={{ backgroundColor: "#FF7A00", border: "none" }}
                 className="py-2 fw-bold fs-5 w-100 text-white"
               >
-                Sign In
+                {isLoading ? (
+                  <Spinner
+                    as="span"
+                    animation="border"
+                    size="sm"
+                    role="status"
+                    aria-hidden="true"
+                  />
+                ) : (
+                  "Sign In"
+                )}
               </Button>
             </Form>
           </Container>

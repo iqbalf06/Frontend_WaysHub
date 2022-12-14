@@ -1,18 +1,7 @@
 import React, { useContext, useState } from "react";
-import { Alert } from "react-bootstrap";
-import {
-  Container,
-  Row,
-  Col,
-  Stack,
-  Image,
-  Form,
-  Button,
-  Card,
-} from "react-bootstrap";
-import WaysHub from "../../assets/images/WaysHub.png";
-import { useNavigate } from "react-router-dom";
+import { Alert, Button, Col, Container, Form } from "react-bootstrap";
 import { useMutation } from "react-query";
+import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/userContext";
 
 import { API } from "../../config/api";
@@ -21,8 +10,6 @@ function Register() {
   const navigate = useNavigate();
 
   document.title = "WaysHub";
-
-  const [state, dispatch] = useContext(UserContext);
 
   const [message, setMessage] = useState(null);
   const [form, setForm] = useState({
@@ -67,7 +54,7 @@ function Register() {
       } else {
         const alert = (
           <Alert variant="danger" className="py-1">
-            Failed
+            Register Failed
           </Alert>
         );
         setMessage(alert);
@@ -75,7 +62,7 @@ function Register() {
     } catch (error) {
       const alert = (
         <Alert variant="danger" className="py-1">
-          Failed
+          Register Failed
         </Alert>
       );
       setMessage(alert);

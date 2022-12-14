@@ -1,18 +1,15 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import {
-  Container,
-  Row,
-  Col,
-  Stack,
-  Image,
-  Form,
   Button,
   Card,
+  Col,
+  Container,
+  Image,
+  Row,
+  Stack
 } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { useContext, useState } from "react";
 import { UserContext } from "../context/userContext";
-
 import WaysHub from "../assets/images/WaysHub.png";
 import Login from "../components/auth/Login";
 import Register from "../components/auth/Register";
@@ -41,7 +38,7 @@ function Auth() {
 
   return (
     <>
-      <Container className="p-3">
+      <Container className="p-3" style={{height:"100vh"}}>
         <Row>
           <Col className="d-flex flex-column justify-content-center">
             <Stack

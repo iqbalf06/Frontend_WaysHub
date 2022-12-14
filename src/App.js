@@ -4,13 +4,10 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import { Container, Row, Col } from "react-bootstrap"
 import { API, setAuthToken } from './config/api';
 import { UserContext } from './context/userContext'; 
-
 import Register from "./components/auth/Register"
 import Login from "./components/auth/Login"
-
 import Sidebar from "./components/sidebar/Sidebar";
 import Navbar from "./components/navbar/Navbar";
-
 import Home from "./pages/Home";
 import AddVideo from "./pages/AddVideo";
 import Creator from "./pages/Creator";
@@ -30,12 +27,12 @@ function App() {
 
   useEffect(() => { 
     // Redirect Auth
-    if (state.isLogin == false) {
+    if (!localStorage.token) {
       navigate('/auth');
-    } 
+    }
 
     setAuthToken(localStorage.token)
-  }, [state]);
+  }, [localStorage]);
   // console.log(state, "ini data state");
   
   const checkUser = async () => {
@@ -76,13 +73,11 @@ function App() {
         </Routes>
         <Container className="p-0 m-0" style={{ maxWidth: '100%' }}>
           <Row lg={2} className="p-0 m-0">
-
             <Col lg={3} className="p-0 m-0">
               <Sidebar />
             </Col>
-
             <Col lg={9} className="p-0 m-0">
-              <Navbar />
+              
               <Routes>
                 <Route exact path='/' element={<Home />} />
                 <Route exact path='/addvideo' element={<AddVideo />} />
